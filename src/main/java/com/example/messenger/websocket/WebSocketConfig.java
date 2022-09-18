@@ -22,5 +22,6 @@ public class WebSocketConfig {
         configuration.setSocketConfig(socketConfig);
         configuration.setOrigin("*");
 
+        return new SocketIOServer(configuration);
     }
 }
