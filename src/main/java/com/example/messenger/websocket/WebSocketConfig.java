@@ -2,13 +2,14 @@ package com.example.messenger.websocket;
 
 import com.corundumstudio.socketio.SocketConfig;
 import com.corundumstudio.socketio.SocketIOServer;
+import com.corundumstudio.socketio.annotation.SpringAnnotationScanner;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class WebSocketConfig {
-    @Value("socket.port")
+    @Value("${socket.port}")
     private Integer port;
 
     @Bean
@@ -23,5 +24,10 @@ public class WebSocketConfig {
         configuration.setOrigin("*");
 
         return new SocketIOServer(configuration);
+    }
+
+    @Bean
+    public SpringAnnotationScanner springAnnotationScanner() {
+        return new SpringAnnotationScanner(socketIOServer());
     }
 }
