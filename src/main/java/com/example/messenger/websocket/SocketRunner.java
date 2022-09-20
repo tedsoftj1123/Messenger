@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class SocketRunner implements CommandLineRunner {
     private final SocketIOServer socketIOServer;
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args) {
         socketIOServer.start();
     }
 }

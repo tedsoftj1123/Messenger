@@ -20,6 +20,7 @@ public class WebSocketConfig {
         socketConfig.setTcpNoDelay(true);
 
         configuration.setPort(port);
+        configuration.setHostname("localhost");
         configuration.setSocketConfig(socketConfig);
         configuration.setOrigin("*");
 

@@ -1,15 +1,16 @@
 package com.example.messenger.chat;
 
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
+import com.corundumstudio.socketio.SocketIOClient;
+import com.corundumstudio.socketio.annotation.OnEvent;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@Slf4j
+@RequiredArgsConstructor
 public class ChatController {
-
-    @GetMapping("/chat")
-    public void handleChat() {
-        log.info("GET chat");
+    @OnEvent("chat")
+    public void chat(SocketIOClient socketIOClient, @RequestBody String msg) {
+        socketIOClient.sendEvent("chat", msg);
     }
 }
