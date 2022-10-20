@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
-import java.util.HashMap;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
@@ -30,9 +29,5 @@ public class SocketHandler {
         String uk = socketIOClient.get("user");
         sessions.remove(uk);
         log.info("Disconnected: " + uk);
-    }
-
-    public HashMap<String, SocketIOClient> getAllClients() {
-        sessions.get()
     }
 }
