@@ -27,11 +27,11 @@ jobs:
     # 리눅스환경에서 필수로 체크아웃을 해야됨, jdk설정
     steps:
     - uses: actions/checkout@v3
-    - name: Set up JDK 11
+    - name: Set up JDK 17
       uses: actions/setup-java@v3
       with:
-        java-version: '11'
-        distribution: 'temurin'
+        java-version: '17'
+        distribution: 'zulu'
       # 빌드파일을 실행(x)할수있는 권한을 부여해준다.(+)
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
