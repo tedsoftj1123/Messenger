@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class WebSocketConfig {
-    @Value("${socket.port")
+    @Value("${socket.port}")
     private Integer port;
 
     @Bean
